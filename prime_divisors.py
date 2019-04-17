@@ -12,14 +12,16 @@ def isprime (number):
     prime = True
     if number == 1 :
         return  False
+    elif number == 2:
+        return True
     else:
-        for i in range(2,int(number/2)):
+        for i in range(2,int(number/2)+1):
             if number%i==0:
                return False 
         return prime
 
-   
-num =input('What is the number? ')   # it can be anythings
-divisors = list(filter(lambda x: num % x == 0, range(2,int(num**0.5))))
-prime_divisors = list(filter(isprime,divisors))
-print(prime_divisors)
+if __name__ == "__main__":
+    num =int(input('What is the number? '))  # it can be anythings
+    divisors = list(filter(lambda x: num % x == 0, range(1,num+1)))
+    prime_divisors = list(filter(isprime,divisors))
+    print(prime_divisors)
